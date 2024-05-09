@@ -1,0 +1,31 @@
+.css-151xpih-MuiListItem-root{
+    width: auto !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.css-1mq6tvb-MuiListItem-root{
+    width: auto !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.userLinkSC:hover{
+    color: blue !important;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .songCard{
+        width: 80dvw !important;
+    }
+
+    .commentInterface{
+        display: block !important;
+    }
+
+    .desktop{
+        display: none;
+    }
+}
