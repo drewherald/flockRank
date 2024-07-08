@@ -72,8 +72,8 @@ function App() {
             <Box className="pages" sx={{minHeight: '80svh'}}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="songs/:id" element={<SongPage />} />
-                <Route path="user/:id" element={<UserPage />} />
+                <Route path="/songs/:id" element={<SongPage />} />
+                <Route path="/user/:id" element={<UserPage />} />
               </Routes>
             </Box>
             <Footer />
