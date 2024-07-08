@@ -17,7 +17,7 @@ app.use(cors()) */
 app.use(express.json())
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://flockrank.onrender.com/api/songs");
+    res.setHeader("Access-Control-Allow-Origin", "https://flockrank.net");
     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     next();
