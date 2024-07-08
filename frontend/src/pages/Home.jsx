@@ -10,7 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchSongs = async () => {
-            const response = await fetch('/api/songs')
+            const response = await fetch('https://flockrank.onrender.com/api/songs')
             const json = await response.json()
 
             if(response.ok){

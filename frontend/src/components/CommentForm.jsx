@@ -24,7 +24,7 @@ export default function Songform({songId, externalComments, triggerOpen}) {
         newComments.push([comment, user.userName])
         const commentUpdate = {id: songId, externalComments: newComments}
         const token = user.token
-        const response = await fetch(`/api/songs/${songId}`, {
+        const response = await fetch(`https://flockrank.onrender.com/api/songs/${songId}`, {
             method: 'PATCH',
             body: JSON.stringify(commentUpdate),
             headers: {

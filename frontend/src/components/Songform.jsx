@@ -33,7 +33,7 @@ export default function Songform() {
         const user = JSON.parse(localStorage.getItem('user'))
         const token = user.token
         const song = {title, date, venue, city, state, comment, upvotes, userName: user.userName}
-        const response = await fetch('/api/songs', {
+        const response = await fetch('https://flockrank.onrender.com/api/songs', {
             method: 'POST',
             body: JSON.stringify(song),
             headers: {

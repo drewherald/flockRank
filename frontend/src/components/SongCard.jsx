@@ -32,7 +32,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
       const song = { upvotes: update, id}
       const user = JSON.parse(localStorage.getItem('user'))
       const token = user.token
-      const response = await fetch(`/api/songs/${id}`, {
+      const response = await fetch(`https://flockrank.onrender.com/api/songs/${id}`, {
           method: 'PATCH',
           body: JSON.stringify(song),
           headers: {

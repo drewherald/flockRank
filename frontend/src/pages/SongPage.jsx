@@ -11,12 +11,13 @@ export default function SongPage() {
     const [songs, setSongs] = useState(null)
     const [loading, setLoading] = useState(true)
     let {id} = useParams()
-
+    
     
     useEffect(() => {
         const fetchSongs = async () => {
-            const response = await fetch('/api/songs')
+            const response = await fetch('https://flockrank.onrender.com/api/songs')
             const json = await response.json()
+            console.log(json)
 
             if(response.ok){
                 let songFilter = []
