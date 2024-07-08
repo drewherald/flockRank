@@ -7,10 +7,6 @@ const {
     updateSong
 } =  require('../controllers/songController')
 
-const cors = require('cors')
-const app = express()
- 
-app.use(cors())
 
 const requireAuth = require('../middleware/requireAuth')
 
