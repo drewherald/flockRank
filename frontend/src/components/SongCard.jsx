@@ -28,6 +28,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
   const handleClick = async() => {
 
     if(user){
+      console.log('upvote')
       const update = upvotes + 1
       const song = { upvotes: update, id}
       const user = JSON.parse(localStorage.getItem('user'))
@@ -63,7 +64,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
               <Typography >{comment}</Typography>
               <div>
                 <ul style={{display: 'flex', margin: '0', listStyle: 'none', padding: '16px 0 0 0', fontSize: '12px', alignItems: 'center'}} className='commentInterface'>
-                    <ListItem sx={{":hover": {color: 'blue}'}, paddingTop: 0, paddingLeft: 0, paddingRight: 0, paddingBottom: 0, display: 'block', margin: '0', width: 'auto'} } onClick={() => setShowComments(!showComments)}>{externalComments ? externalComments.length : 0} comments</ListItem>
+                    <li style={{":hover": {color: 'blue}'}, padding: '0', display: 'block', margin: '0'} } onClick={() => setShowComments(!showComments)}>{externalComments ? externalComments.length : 0} comments</li>
                     {user &&
                       <React.Fragment>
                         <li style={{padding:' 0 5px'}} className='desktop'> | </li>

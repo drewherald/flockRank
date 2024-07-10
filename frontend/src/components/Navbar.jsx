@@ -49,7 +49,7 @@ export default function Navbar() {
                 
               </React.Fragment>
              
-              : <span style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+              : <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <AuthPopup flavorText={'Sign Up'} signup={true}/> 
                 <AuthPopup flavorText={'Log In'} signup={false}/>
                 </span>}

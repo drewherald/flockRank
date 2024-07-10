@@ -6,9 +6,11 @@
    .navInner{
       display: flex;
       flex-direction: column;
+      margin: 20px 0;
    }
 
    .navInner button{
+      margin-top: 20px;
       margin-bottom: 20px;
    }
 
