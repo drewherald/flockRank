@@ -16,12 +16,9 @@ app.use(cors()) */
 //middleware
 app.use(express.json())
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://flockrank.net");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    next();
-  })
+const cors=require('cors');
+
+app.use(cors({origin:true,credentials: true}));
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
