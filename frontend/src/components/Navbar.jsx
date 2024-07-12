@@ -23,12 +23,23 @@ export default function Navbar() {
     logout()
   }
 
+  const buttonStyle = {
+    fontWeight: '600',
+    fontSize: '0.875rem',
+    lineHeight: 1.5,
+    backgroundColor: '#007FFF',
+    padding: '8px 16px',
+    borderRadius: '8px',
+    boxShadow: '0 2px 1px rgba(0, 0, 0, 0.5), inset 0 1.5px 1px #3399FF, inset 0 -2px 1px #0072E5',
+    margin:' 20px 10px',
+    cursor: 'pointer'
+  }
   
   return (
     <header>
         <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '30px 0'}}>
             <Link href={'/'} underline='none'  style={{ textDecoration: 'none' }}>
-                <Typography variant='h4' sx={{fontFamily: 'Elianto, Helvetica, sans-serif'}}>FLOCKRANK.NET</Typography>
+                <Typography className='flockranknet' variant='h4' sx={{fontFamily: 'Elianto, Helvetica, sans-serif'}}>FLOCKRANK.NET</Typography>
             </Link>
             <Box className='navInner' sx={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
               <Autocomplete
@@ -44,8 +55,9 @@ export default function Navbar() {
               {user ?
               <React.Fragment>
                 <FormPopup flavorText={'Post a new song'} />
-                  <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 16px'}} style={{ textDecoration: 'none' }}>{user.userName}</Typography>
-                  <Button onClick={handleLogout} type='Button'> Log Out</Button>
+                <Box onClick={handleLogout} type='Button' sx={buttonStyle}> Log Out</Box>
+                <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 16px'}} style={{ textDecoration: 'none' }}>{user.userName}</Typography>
+
                 
               </React.Fragment>
              

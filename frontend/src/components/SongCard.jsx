@@ -28,7 +28,6 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
   const handleClick = async() => {
 
     if(user){
-      console.log('upvote')
       const update = upvotes + 1
       const song = { upvotes: update, id}
       const user = JSON.parse(localStorage.getItem('user'))
@@ -42,7 +41,6 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
  
           }
       })
-      console.log(response)
       setUpvoteCount(upvoteCount + 1)
       setUpvoted(true)
     }

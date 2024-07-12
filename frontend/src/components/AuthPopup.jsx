@@ -3,15 +3,29 @@ import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
 import { styled } from '@mui/system';
 import Signup from './Signup';
 import Login from './Login'
+import { Modal } from '@mui/material';
 
 export default function AuthPopup({flavorText, signup}) {
-  const [anchor, setAnchor] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchor(anchor ? null : event.currentTarget);
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    border: '2px solid #000',
+    p: 4,
   };
 
-  const open = Boolean(anchor);
+
+
+  
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = (event) => {
+    setOpen(true)
+  };
+
+  const handleClose = () => {setOpen(false)}
   const id = open ? 'simple-popper' : undefined;
 
   return (
@@ -19,13 +33,13 @@ export default function AuthPopup({flavorText, signup}) {
       <Button aria-describedby={id} type="button" onClick={handleClick} sx={{margin: '0 10px'}}>
         {flavorText}
       </Button>
-      <BasePopup id={id} open={open} anchor={anchor} placement="bottom-end">
-        <PopupBody>
+      <Modal id={id} open={open}  onClose={handleClose} placement="bottom-end">
+        <PopupBody sx={style}>
             {
                 signup ? <Signup /> : <Login />
             }
         </PopupBody>
-      </BasePopup>
+      </Modal>
     </div>
   );
 }
