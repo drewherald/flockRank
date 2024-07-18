@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
 import { styled } from '@mui/system';
 import Songform from './Songform';
-import { Box, Button, Modal } from '@mui/material';
+import { Box, Modal } from '@mui/material';
+import { Button } from 'react95'
 
 export default function FormPopup({flavorText}) {
     const [open, setOpen] = React.useState(false);
@@ -20,21 +21,12 @@ export default function FormPopup({flavorText}) {
   };
 
   const buttonStyle = {
-    //font-family: '"IBM Plex Sans, sans-serif;'
-    fontWeight: '600',
-    fontSize: '0.875rem',
-    lineHeight: 1.5,
-    backgroundColor: '#007FFF',
-    padding: '8px 16px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 1px rgba(0, 0, 0, 0.5), inset 0 1.5px 1px #3399FF, inset 0 -2px 1px #0072E5',
-    margin:' 20px 10px',
-    cursor: 'pointer'
-  }
+    padding: '8px 16px'
+    }
 
   return (
     <div>
-      <Box onClick={handleOpen} sx={buttonStyle}>{flavorText}</Box>
+      <Button onClick={handleOpen} style={buttonStyle}>{flavorText}</Button>
       <Modal
         open={open}
         onClose={handleClose}

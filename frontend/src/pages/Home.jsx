@@ -24,9 +24,12 @@ export default function Home() {
     }, [])
 
   return (
-    <Box sx={{display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '10px'}}>
+    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: '10px'}}>
         <Box>
-        <Typography variant='h4' className='welcomeToFR' sx={{padding: '10px 0 20px 0'}}> Welcome to FlockRank! A place to rank your favorite versions of Goose songs. </Typography> 
+            
+        </Box>
+        <Box>
+        <Typography variant='h4' className='welcomeToFR' sx={{padding: '10px 0 20px 0', fontFamily: `'Tahoma', 'ms_sans_serif'`}}> Welcome to FlockRank! A place to rank your favorite versions of Goose songs. </Typography> 
         <div className='songs'>
             <Typography variant='h5' sx={{padding: '10px 0 20px 0'}}> Top 5 Songs </Typography> 
             {songs && songs.slice(0,5).map((song) => (

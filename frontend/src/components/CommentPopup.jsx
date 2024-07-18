@@ -2,27 +2,39 @@ import * as React from 'react';
 import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
 import { styled } from '@mui/system';
 import CommentForm from './CommentForm';
+import { Modal, Typography } from '@mui/material';
 
 export default function CommentPopup({flavorText, songId, externalComments}) {
-  const [anchor, setAnchor] = React.useState(null);
+
+  const [open, setOpen] = React.useState(false);
+  const id = open ? 'simple-popper' : undefined;
 
   const handleClick = (event) => {
-    setAnchor(anchor ? null : event.currentTarget);
+    setOpen(true)
   };
 
-  const open = Boolean(anchor);
-  const id = open ? 'simple-popper' : undefined;
+  const handleClose = () => {setOpen(false)}
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    border: '2px solid #000',
+    p: 4,
+  };
 
   return (
     <div>
-      <Button aria-describedby={id} type="button" onClick={handleClick} sx={{fontSize: '12px', padding: 0, backgroundColor: '#424242', border: 'none', boxShadow: 'none', ":hover": {backgroundColor: '#424242', color: 'blue'}, fontWeight: 500}}>
+      <Typography type="button" onClick={handleClick} sx={{fontSize: '12px', padding: 0, border: 'none', boxShadow: 'none', backgroundColor: '#c6c6c6', ":hover": {color: 'blue', cursor: 'pointer'}, fontWeight: 500}}>
         {flavorText}
-      </Button>
-      <BasePopup id={id} open={open} anchor={anchor} placement="right">
-        <PopupBody>
-            <CommentForm songId = {songId} externalComments={externalComments} triggerOpen = {setAnchor}/>
+      </Typography>
+      <Modal id={id} open={open}  onClose={handleClose} placement="bottom-end">
+        <PopupBody sx={style}>
+            <CommentForm songId = {songId} externalComments={externalComments} />
         </PopupBody>
-      </BasePopup>
+      </Modal>
+      
     </div>
   );
 }

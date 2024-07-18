@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
+import { TextInput, Button } from 'react95';
 
 
 
@@ -52,12 +52,10 @@ export default function Songform({songId, externalComments, triggerOpen}) {
  
   return (
     
-        <Box component='form' className='create' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>
-            <h3>Add a new comment</h3>
-        
-            <TextField id="outlined-basic" label="Comments" multiline rows={3} variant="outlined" value={comment} onChange={(e) => setComment(e.target.value)} sx={{paddingBottom: '10px'}}/>
-            <Button type='submit' variant='contained' sx={{margin: '10px 0 30px 0'}}>submit</Button>
-            {error && <div>{error}</div>}
+        <Box component='form' className='create' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>        
+            <TextInput label="Comments" multiline rows={4} placeholder='Add a new comment' variant="flat" value={comment} onChange={(e) => setComment(e.target.value)} style={{paddingBottom: '10px', fontFamily: 'ms_sans_serif'}}/>
+            <Button type='submit'  style={{margin: '10px 0'}}>Submit</Button>
+            {error && <div style={{color: 'red'}}>{error}</div>}
             {!error && <Box sx={{color: 'green'}}>{success}</Box>}
         </Box>
        

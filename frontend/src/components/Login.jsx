@@ -1,8 +1,7 @@
-import { Box, Button, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useLogin } from '../hooks/useLogin'
-import hide from '../assets/images/hide.png'
-import view from '../assets/images/view.png'
+import { TextInput, Button } from 'react95'
 
 export default function Login() {
 
@@ -28,21 +27,12 @@ export default function Login() {
   return (
     <Box component='form' className='login' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>
         <h3>Log In</h3>
-        <TextField  label="E-Mail" type='email'  variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} sx={{paddingBottom: '10px'}}/>
-        <TextField  label="Password" type={pVisible ? 'text' : 'password'} variant="outlined" value={password} onChange={(e) => setPassword(e.target.value)} sx={{paddingBottom: '10px'}}
-        InputProps={{endAdornment:(
-          <InputAdornment position='end'>
-            <IconButton  aria-label="toggle password visibility"
-          onClick={handleClickShowPassword}
-          >
-          {pVisible ?  <img src={view} alt="" style={{height: '20px'}}/> : <img src={hide} alt="" style={{height: '20px'}}/> }
-          
-
-            </IconButton>
-          </InputAdornment>
-        )}}
-        />        <Button type='submit' disabled={isLoading} variant='contained' sx={{margin: '10px 0 30px 0'}}>Log In</Button>
-        {error && <Box>{error}</Box>}
+        <TextInput  label="E-Mail" type='email'  variant="flat" placeholder='E-Mail' value={email} onChange={(e) => setEmail(e.target.value)} style={{margin: '5px 0'}}/>
+        <TextInput  label="Password" type={pVisible ? 'text' : 'password'} placeholder='Password' variant="flat" value={password} onChange={(e) => setPassword(e.target.value)}style={{margin: '5px 0'}} />
+           
+        <Button onClick={handleClickShowPassword} style={{margin: '20px 0 0 0'}}>{pVisible ? 'Hide Password' : 'Show Password'}</Button>
+        <Button type='submit' disabled={isLoading} style={{margin: '10px 0 10px 0'}}>Log In</Button>
+        {error && <Typography sx={{color: '#EE4B2B'}}>{error}</Typography>}
     </Box>
   )
 }

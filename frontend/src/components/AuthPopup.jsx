@@ -1,9 +1,19 @@
 import * as React from 'react';
-import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
 import { styled } from '@mui/system';
 import Signup from './Signup';
 import Login from './Login'
 import { Modal } from '@mui/material';
+import {
+  Button,
+  MenuList,
+  MenuListItem,
+  ScrollView,
+  Separator,
+  Toolbar,
+  Window,
+  WindowContent,
+  WindowHeader
+} from 'react95';
 
 export default function AuthPopup({flavorText, signup}) {
 
@@ -29,16 +39,17 @@ export default function AuthPopup({flavorText, signup}) {
   const id = open ? 'simple-popper' : undefined;
 
   return (
-    <div >
-      <Button aria-describedby={id} type="button" onClick={handleClick} sx={{margin: '0 10px'}}>
+    <div style={{backgroundColor: 'black', padding: '0 10px'}}>
+      <Button onClick={handleClick} >
         {flavorText}
       </Button>
       <Modal id={id} open={open}  onClose={handleClose} placement="bottom-end">
-        <PopupBody sx={style}>
+
+       <PopupBody sx={style}>
             {
                 signup ? <Signup /> : <Login />
             }
-        </PopupBody>
+          </PopupBody>
       </Modal>
     </div>
   );
@@ -82,47 +93,5 @@ const PopupBody = styled('div')(
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   z-index: 1;
-`,
-);
-
-const Button = styled('button')(
-  ({ theme }) => `
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  background-color: ${blue[500]};
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: white;
-  transition: all 150ms ease;
-  cursor: pointer;
-  border: 1px solid ${blue[500]};
-  box-shadow: 0 2px 1px ${
-    theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(45, 45, 60, 0.2)'
-  }, inset 0 1.5px 1px ${blue[400]}, inset 0 -2px 1px ${blue[600]};
-
-  &:hover {
-    background-color: ${blue[600]};
-  }
-
-  &:active {
-    background-color: ${blue[700]};
-    box-shadow: none;
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 4px ${theme.palette.mode === 'dark' ? blue[300] : blue[200]};
-    outline: none;
-  }
-
-  &.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    box-shadow: none;
-    &:hover {
-      background-color: ${blue[500]};
-    }
-  }
 `,
 );
