@@ -27,7 +27,7 @@ export default function FormPopup({flavorText}) {
 
   return (
     <div>
-      <Button onClick={handleOpen} style={buttonStyle}>{flavorText}</Button>
+      <Button className='formButton' onClick={handleOpen} style={buttonStyle}>{flavorText}</Button>
       <Modal
         open={open}
         onClose={handleClose}

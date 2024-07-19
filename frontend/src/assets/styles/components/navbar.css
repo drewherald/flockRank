@@ -13,11 +13,12 @@
    font-style: normal
  }
 
- *{
-   color: black;
+ /* Button Styling */
+
+ .formButton:hover{
+   color: #394dcd;
  }
-
-
+ 
  .css-3ji88i{
    min-height: 0 !important;
  }

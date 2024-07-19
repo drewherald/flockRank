@@ -40,7 +40,7 @@ export default function AuthPopup({flavorText, signup}) {
 
   return (
     <div style={{backgroundColor: 'black', padding: '0 10px'}}>
-      <Button onClick={handleClick} style={{backgroundColor: '#c6c6c6'}} >
+      <Button className='formButton' onClick={handleClick} style={{backgroundColor: '#c6c6c6'}} >
         {flavorText}
       </Button>
       <Modal id={id} open={open}  onClose={handleClose} placement="bottom-end">

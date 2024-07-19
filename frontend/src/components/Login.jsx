@@ -30,8 +30,8 @@ export default function Login() {
         <TextInput  label="E-Mail" type='email'  variant="flat" placeholder='E-Mail' value={email} onChange={(e) => setEmail(e.target.value)} style={{margin: '5px 0'}}/>
         <TextInput  label="Password" type={pVisible ? 'text' : 'password'} placeholder='Password' variant="flat" value={password} onChange={(e) => setPassword(e.target.value)}style={{margin: '5px 0'}} />
            
-        <Button onClick={handleClickShowPassword} style={{margin: '20px 0 0 0'}}>{pVisible ? 'Hide Password' : 'Show Password'}</Button>
-        <Button type='submit' disabled={isLoading} style={{margin: '10px 0 10px 0'}}>Log In</Button>
+        <Button className='formButton' onClick={handleClickShowPassword} style={{margin: '20px 0 0 0', backgroundColor: '#c6c6c6'}}>{pVisible ? 'Hide Password' : 'Show Password'}</Button>
+        <Button className='formButton' type='submit' disabled={isLoading} style={{margin: '10px 0 10px 0', backgroundColor: '#c6c6c6'}}>Log In</Button>
         {error && <Typography sx={{color: '#EE4B2B'}}>{error}</Typography>}
     </Box>
   )

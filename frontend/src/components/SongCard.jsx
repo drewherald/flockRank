@@ -26,6 +26,8 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
 
   const handleClick = async() => {
 
+    console.log(user)
+
     if(user){
       const update = upvotes + 1
       const song = { upvotes: update, id}
@@ -52,7 +54,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
         <CardContent >
           <Box sx={{display: 'flex', alignItems: 'center', backgroundColor: '#c6c6c6'}}>
               <Box sx={{marginRight: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#c6c6c6', flexDirection: 'column'}}>
-                <SvgIcon onClick={upvoted ? null : handleClick} component={ArrowCircleUpIcon} sx={{cursor: 'pointer', backgroundColor: '#c6c6c6', ":hover": {color: 'blue'},  color: upvoted ? 'blue' : ''} }></SvgIcon>
+                <SvgIcon onClick={upvoted ? null : handleClick} component={ArrowCircleUpIcon} sx={{cursor: 'pointer', ":hover": {color: '#394dcd', cursor: 'pointer'},  color: upvoted ? 'blue' : ' '} }></SvgIcon>
                 <Typography sx={{backgroundColor: '#c6c6c6'}}>{upvoteCount}</Typography>
               </Box>
               <Box>
