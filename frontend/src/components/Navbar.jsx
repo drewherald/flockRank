@@ -20,6 +20,7 @@ export default function Navbar() {
   const {user} = useAuthContext()
 
 
+
   const handleLogout = () => {
     logout()
   }
