@@ -13,17 +13,8 @@
    font-style: normal
  }
 
- /* Button Styling */
-
- .formButton:hover{
-   color: #394dcd;
- }
  
- .css-3ji88i{
-   min-height: 0 !important;
- }
- 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
    .navContainer{
     flex-direction: column;
     padding: 15px 7dvw !important;
@@ -73,7 +64,22 @@
    font-family:  'ms_sans_serif' !important;
 }
 
-@media (min-width:600px){.css-1oqqzyl-MuiContainer-root{padding-left:0 !important; ;padding-right:0 !important;}}
+@media (min-width:1000px){
+   
+   .css-1oqqzyl-MuiContainer-root{
+      padding-left:0 !important; ;padding-right:0 !important;
+   }
+
+   /* Button Styling */
+
+ .formButton:hover{
+   color: #394dcd;
+ }
+ 
+ .css-3ji88i{
+   min-height: 0 !important;
+ }
+}
 
 .css-xnv4u0{
    background-color: #c6c6c6 !important;
