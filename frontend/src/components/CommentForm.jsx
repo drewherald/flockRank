@@ -53,7 +53,7 @@ export default function Songform({songId, externalComments, triggerOpen}) {
   return (
     
         <Box component='form' className='create' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>        
-            <TextInput label="Comments" multiline rows={4} placeholder='Add a new comment' variant="flat" value={comment} onChange={(e) => setComment(e.target.value)} style={{paddingBottom: '10px', fontFamily: 'ms_sans_serif'}}/>
+            <TextInput required label="Comments" multiline rows={4} placeholder='Add a new comment' variant="flat" value={comment} onChange={(e) => setComment(e.target.value)} style={{paddingBottom: '10px', fontFamily: 'ms_sans_serif'}}/>
             <Button type='submit'  style={{margin: '10px 0'}}>Submit</Button>
             {error && <div style={{color: 'red'}}>{error}</div>}
             {!error && <Box sx={{color: 'green'}}>{success}</Box>}
