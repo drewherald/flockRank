@@ -24,17 +24,6 @@ export default function Navbar() {
     logout()
   }
 
-  const buttonStyle = {
-    fontWeight: '600',
-    fontSize: '0.875rem',
-    lineHeight: 1.5,
-    backgroundColor: '#007FFF',
-    padding: '8px 16px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 1px rgba(0, 0, 0, 0.5), inset 0 1.5px 1px #3399FF, inset 0 -2px 1px #0072E5',
-    margin:' 20px 10px',
-    cursor: 'pointer'
-  }
 
   return (
     <header style={{backgroundColor: '#c6c6c6'}}>
