@@ -58,10 +58,14 @@ export default function Navbar() {
          <span>
         {user ?
               <React.Fragment>
-                <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
-                <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 30px 0 0', backgroundColor: 'black', color: '	#394dcd' }} style={{ textDecoration: 'none' }}>Welcome, {user.userName}!</Typography>
-                <FormPopup flavorText={'Post a new song'} />
-                <Button className='formButton' onClick={handleLogout} style={{margin: '0 10px', backgroundColor: '#c6c6c6'}}> Log Out</Button>
+                <span className='loggedIn' style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
+                  <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 30px 0 0', backgroundColor: 'black', color: '	#394dcd' }} style={{ textDecoration: 'none' }}>Welcome, {user.userName}!</Typography>
+                  
+                  <Box sx={{display: 'flex'}}>
+                    <FormPopup flavorText={'Post a new song'} />
+                    <Button className='formButton' onClick={handleLogout} style={{margin: '0 10px', backgroundColor: '#c6c6c6'}}> Log Out</Button>
+                  </Box>
+
                 </span>
                 
               </React.Fragment>

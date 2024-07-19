@@ -40,7 +40,7 @@ export default function UserPage() {
   return (
     <>
 
-        <div className='songs' style={{backgroundColor: '#008080', minHeight:'70svh'}}>
+        <div className='songs' style={{backgroundColor: '#008080', paddingBottom: '50svh'}}>
             {(songs && !loading) && 
 
             <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr'}}>

@@ -26,6 +26,7 @@
 @media only screen and (max-width: 600px) {
    .navContainer{
     flex-direction: column;
+    padding: 15px 7dvw !important;
    }
 
    .navInner{
@@ -40,7 +41,15 @@
    }
 
 
+   /* logged in button styling */
 
+   .loggedIn{
+      flex-direction: column;
+   }
+
+   .loggedIn a{
+      padding: 10px 0;
+   }
 
    .css-cq2wis-MuiAutocomplete-root{
       padding: 25px 0;
@@ -49,10 +58,6 @@
 
    .css-th06dx{
       padding-right: 0 !important;
-   }
-
-   .flockranknet{
-      padding-bottom: 40px;
    }
 
    .css-1df1cvt{

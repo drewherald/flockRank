@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -7,7 +6,8 @@ import { SongContext } from '../App';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Paper } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
+import { Button } from 'react95'
 
 
 
@@ -69,8 +69,8 @@ export default function Songform() {
   return (
     
         <Box component='form' className='create' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>
-            <h3>Add a new version</h3>
-            <Autocomplete
+        <Typography sx={{fontSize: '24px', textAlign: 'center', paddingBottom: '20px'}} >Add a New Version</Typography>
+        <Autocomplete
             freeSolo
             key={rerenderAutocomplete}
             options={globalSongs.songList}
@@ -103,8 +103,8 @@ export default function Songform() {
             <TextField  label="City"  variant="outlined" value={city} onChange={(e) => setCity(e.target.value)} sx={{paddingBottom: '10px'}}/>
             <TextField  label="State (Postal Code ex: CO, blank if International)" variant="outlined" value={state} onChange={(e) => setState(e.target.value)} sx={{paddingBottom: '10px'}}/>
             <TextField id="outlined-basic" label="Comments" variant="outlined" value={comment} onChange={(e) => setComment(e.target.value)} sx={{paddingBottom: '10px'}}/>
-            <Button type='submit' variant='contained' sx={{margin: '10px 0 30px 0'}}>submit</Button>
-            {error && <div>{error}</div>}
+            <Button className='formButton' type='submit'  style={{margin: '10px 0 10px 0', backgroundColor: '#c6c6c6'}}>Submit</Button>
+            {error && <Typography sx={{color: 'red'}}>{error}</Typography>}
             {!error && <Box sx={{color: 'green'}}>{rerenderAutocomplete}</Box>}
         </Box>
        
