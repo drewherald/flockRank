@@ -24,19 +24,18 @@ export default function Home() {
     }, [])
 
   return (
-    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: '10px'}}>
-        <Box>
-            
+    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: '10px', backgroundColor: '#008080', padding: '10px 0'}}>
+        <Box sx={{ backgroundColor: '#008080'}}>
         </Box>
         <Box>
-        <Typography variant='h4' className='welcomeToFR' sx={{padding: '10px 0 20px 0', fontFamily: `'Tahoma', 'ms_sans_serif'`}}> Welcome to FlockRank! A place to rank your favorite versions of Goose songs. </Typography> 
-        <div className='songs'>
-            <Typography variant='h5' sx={{padding: '10px 0 20px 0'}}> Top 5 Songs </Typography> 
+        <Typography variant='h4' className='welcomeToFR' sx={{padding: '10px 0 20px 0', backgroundColor: '#008080', fontFamily: `'Tahoma', 'ms_sans_serif'`}}> Welcome to FlockRank! A place to rank your favorite versions of Goose songs. </Typography> 
+        <div className='songs' style={{ backgroundColor: '#008080'}}>
+            <Typography variant='h5' sx={{padding: '10px 0 20px 0',  backgroundColor: '#008080'}}> Top 5 Songs </Typography> 
             {songs && songs.slice(0,5).map((song) => (
                 <SongCard key={song._id} title={song.title} date={song.date} venue={song.venue} city={song.city} state={song.state} comment={song.comment} upvotes={song.upvotes} id={song._id} externalComments={song.externalComments} userName = {song.userName}/>
             ))}</div>
         </Box>
-        <Box>
+        <Box sx={{ backgroundColor: '#008080'}}>
             
         </Box>
 

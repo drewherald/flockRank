@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import { SongContext } from '../App';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -13,11 +13,8 @@ export default function Footer() {
 
 
   return (
-    <Box sx={{padding: '20px 0', position: 'relative', bottom: '0'}}>
-        {theme.palette.mode} mode
-      <IconButton sx={{ ml: 1 }} onClick={globalSongs.setColorMode} color="inherit">
-      {localStorage.getItem('colorMode') === true ? <Brightness7Icon /> : <Brightness4Icon />}
-    </IconButton>
+    <Box sx={{padding: '50px 0 25px 0', position: 'relative', bottom: '0',  backgroundColor: '#008080'}}>
+      <Typography sx={{textAlign: 'right', paddingRight: '40px', backgroundColor: '#008080'}}>2024 Alias Media & Design LLC</Typography>
     </Box>
 
   )

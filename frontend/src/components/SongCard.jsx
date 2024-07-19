@@ -20,7 +20,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
 
   let cardStyle = {
     width: '50dvw',
-    margin: "20px 0",
+    margin: "20px 0 0 0",
     backgroundColor: "#c6c6c6"
   }
 
@@ -69,14 +69,14 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
                       </React.Fragment>
                       }
                     <li style={{padding:' 0 5px', backgroundColor: '#c6c6c6'}} className='desktop'> | </li>
-                    <li style={{backgroundColor: '#c6c6c6'}} >posted by: <Typography className='userLinkSC' onClick={() =>  window.location.href = `/user/${userName}`}  style={{ textDecoration: 'none', color: 'white', fontSize: '12px', display: 'inline', cursor: 'pointer', backgroundColor: '#c6c6c6'}}>{userName}</Typography> </li>
+                    <li style={{backgroundColor: '#c6c6c6'}} >posted by: <Typography className='userLinkSC' onClick={() =>  window.location.href = `/user/${userName}`}  style={{ textDecoration: 'none', fontSize: '12px', display: 'inline', cursor: 'pointer', backgroundColor: '#c6c6c6'}}>{userName}</Typography> </li>
                 </ul>
               </div>
               
                 </Box>
           </Box>
               {(showComments && externalComments.length>0) && <div style={{padding: '20px 0 0 40px'}}>
-                  {externalComments.map((comment) => <Typography sx={{paddingTop: '10px', color: 'white'}}>{comment[0]} <br/> <span style={{fontSize: '10px'}}>posted by: <Typography className='userLinkSC' onClick={() =>  window.location.href = `/user/${userName}`}  style={{ textDecoration: 'none', color: 'white', fontSize: '10px', display: 'inline', cursor: 'pointer'}}>{comment[1]}</Typography></span></Typography>)}
+                  {externalComments.map((comment) => <Typography sx={{paddingTop: '10px'}}>{comment[0]} <br/> <span style={{fontSize: '10px'}}>posted by: <Typography className='userLinkSC' onClick={() =>  window.location.href = `/user/${userName}`}  style={{ textDecoration: 'none', fontSize: '10px', display: 'inline', cursor: 'pointer'}}>{comment[1]}</Typography></span></Typography>)}
               </div>}
 
         </CardContent>

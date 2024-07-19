@@ -36,54 +36,43 @@ export default function Navbar() {
     cursor: 'pointer'
   }
 
-
-
- 
-
-
-  
   return (
-    <header style={{backgroundColor: '#c6c6c6 !important'}}>
-      <Box className='headerContainer' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center' }}>
-      <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', backgroundColor: '#c6c6c6', alignItems: 'center', padding: '30px 7dvw 20px 7dvw', width: '100dvw'}}>
-            <Link href={'/'} underline='none'  style={{ textDecoration: 'none', backgroundColor: '#c6c6c6' }}>
-                <Typography className='flockranknet' variant='h4' sx={{fontFamily: 'Elianto, Helvetica, sans-serif', backgroundColor: '#c6c6c6'}}>FLOCKRANK.NET</Typography>
+    <header style={{backgroundColor: '#c6c6c6'}}>
+      <Box className='headerContainer' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center'}}>
+      <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '30px 0 10px 0', width: '86dvw'}}>
+            <Link href={'/'} underline='none'  style={{ textDecoration: 'none' }}>
+                <Typography className='flockranknet' variant='h4' sx={{fontFamily: 'Elianto, Helvetica, sans-serif', color: '	#394dcd'}}>FLOCKRANK.NET</Typography>
             </Link>
-            <Box className='navInner' sx={{display: 'flex', justifyContent:'center', alignItems: 'center', backgroundColor: '#c6c6c6'}}>
+            <Box className='navInner' sx={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
               <Autocomplete
               options={globalSongs.songList}
-              renderOption={(props, option) => {
-                return(
-                  <span {...props} style={{ backgroundColor: '#c6c6c6' }}>
-                  {option}
-                </span>
-                )
-              }}
               freeSolo
-              sx={{ width: 300, padding: '0px', backgroundColor: '#c6c6c6',
-            }}
+              sx={{ width: 300, padding: '0px' }}
               onChange={(e, newValue) =>  window.location.href = `/songs/${newValue}`}
               renderInput={(params) => <TextField {...params} label="Find a song" 
               className='songLookup'
               size='small'
+             
               />}
-              
+              PaperComponent={({ children }) => (
+                <Paper style={{ background: "#c6c6c6" }}>{children}</Paper>
+              )}
               />
              
             </Box>
             
         </Box>
-        <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 7dvw', margin: '0 0 20px 0', width: '100dvw', backgroundColor: 'black'}}>
+        <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 7dvw', margin: '10px 0 0 0', width: '100dvw', backgroundColor: 'black'}}>
         
-        <Typography sx={{color: 'white', backgroundColor: 'black'}}>The Best Place to Rank Goose Shows on the Web</Typography>
+        <Typography sx={{color: 'white', backgroundColor: 'black', color: '#dfe300'}}>The Best Place to Rank Goose Shows on the Web</Typography>
 
-        <span>
+         <span>
         {user ?
               <React.Fragment>
                 <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
-                <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 30px 0 0', backgroundColor: 'black'}} style={{ textDecoration: 'none' }}>Welcome, {user.userName}!</Typography>
+                <Typography component={Link} href={`/user/${user.userName}`} sx={{padding: '0 30px 0 0', backgroundColor: 'black', color: '	#394dcd' }} style={{ textDecoration: 'none' }}>Welcome, {user.userName}!</Typography>
                 <FormPopup flavorText={'Post a new song'} />
-                <Button onClick={handleLogout} style={{margin: '0 10px'}}> Log Out</Button>
+                <Button onClick={handleLogout} style={{margin: '0 10px', backgroundColor: '#c6c6c6'}}> Log Out</Button>
                 </span>
                 
               </React.Fragment>

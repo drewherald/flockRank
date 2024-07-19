@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <Box component='form' className='login' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>
-        <h3>Log In</h3>
+        <Typography sx={{fontSize: '24px', textAlign: 'center', paddingBottom: '20px'}} >Log In</Typography>
         <TextInput  label="E-Mail" type='email'  variant="flat" placeholder='E-Mail' value={email} onChange={(e) => setEmail(e.target.value)} style={{margin: '5px 0'}}/>
         <TextInput  label="Password" type={pVisible ? 'text' : 'password'} placeholder='Password' variant="flat" value={password} onChange={(e) => setPassword(e.target.value)}style={{margin: '5px 0'}} />
            

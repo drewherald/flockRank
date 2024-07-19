@@ -1,3 +1,27 @@
+/* global font styling */
+
+@font-face {
+   font-family: 'ms_sans_serif';
+   src: url('react95/dist/fonts/ms_sans_serif.woff2') format('woff2');
+   font-weight: 400;
+   font-style: normal
+ }
+ @font-face {
+   font-family: 'ms_sans_serif';
+   src: url('react95/dist/fonts/ms_sans_serif_bold.woff2') format('woff2');
+   font-weight: bold;
+   font-style: normal
+ }
+
+ *{
+   color: black;
+ }
+
+
+ .css-3ji88i{
+   min-height: 0 !important;
+ }
+ 
 @media only screen and (max-width: 600px) {
    .navContainer{
     flex-direction: column;
@@ -43,55 +67,13 @@
    font-family:  'ms_sans_serif' !important;
 }
 
+@media (min-width:600px){.css-1oqqzyl-MuiContainer-root{padding-left:0 !important; ;padding-right:0 !important;}}
+
 .css-xnv4u0{
    background-color: #c6c6c6 !important;
 }
 
-.dWlIsN{
-   outline: 0px !important;
-}
-
-.css-17x0937-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall{
+.css-397hl{
    background-color: #c6c6c6 !important;
 }
 
-.css-17x0937-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall .MuiAutocomplete-input{
-   background-color: #c6c6c6 !important;
-}
-
-.css-wb57ya-MuiFormControl-root-MuiTextField-root{
-   background-color: #c6c6c6 !important;
-}
-
-.css-1w74ma2{
-   background-color: #c6c6c6 !important;
-
-}
-
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
-   background-color: #c6c6c6 !important;
-}
-
-.css-yjsfm1{
-   background-color: #c6c6c6 !important;
-}
-
-.css-yjsfm1 span{
-   background-color: #c6c6c6 !important;
-}
-
-.css-62h5e4-MuiFormLabel-root-MuiInputLabel-root {
-   background-color: #c6c6c6 !important;
-}
-
-.css-1u4zkqh-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
-   background-color: #c6c6c6 !important;
-}
-
-.css-1u4zkqh-MuiFormLabel-root-MuiInputLabel-root{
-   background-color: #c6c6c6 !important;
-}
-
-#root > div > header > div > div.navContainer.MuiBox-root.css-1fxq2el > div > div > div > div {
-   color: black
-}

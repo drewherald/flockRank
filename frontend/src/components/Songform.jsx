@@ -7,6 +7,7 @@ import { SongContext } from '../App';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { Paper } from '@mui/material';
 
 
 
@@ -26,6 +27,7 @@ export default function Songform() {
 
     const globalSongs = useContext(SongContext)
 
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -75,6 +77,9 @@ export default function Songform() {
             sx={{paddingBottom: '10px'}}
             onChange={(e, newValue) => setTitle(newValue)}
             renderInput={(params) => <TextField {...params} label="Song" />}
+            PaperComponent={({ children }) => (
+                <Paper style={{ background: "#c6c6c6" }}>{children}</Paper>
+              )}
             />
         
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -82,7 +87,16 @@ export default function Songform() {
                 label='Show Date'
                 sx={{paddingBottom: '10px'}}
                 key={rerenderDate}
+                renderInput={(params) => (
+                    <TextField
+                    sx={{ backgroundColor: '#c6c6c6' }}
+                    fullWidth
+                    {...params}
+                    />
+                )}
                 onChange={(newValue) => setDate(newValue.$d.toLocaleDateString())}/>
+               
+                
            </LocalizationProvider>
 
             <TextField  label="Venue"  variant="outlined" value={venue} onChange={(e) => setVenue(e.target.value)} sx={{paddingBottom: '10px'}}/>

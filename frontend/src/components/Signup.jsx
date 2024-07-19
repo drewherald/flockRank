@@ -27,7 +27,7 @@ export default function Signup() {
 
   return (
     <Box component='form' className='signup' onSubmit={handleSubmit} sx={{display: 'flex', flexDirection: 'column', width: '40dvw'}}>
-        <Typography>Sign up</Typography>
+        <Typography sx={{fontSize: '24px', textAlign: 'center', paddingBottom: '20px'}} >Sign Up for FlockRank!</Typography>
         <TextInput  label="E-Mail" type='email' variant='flat' placeholder='E-Mail' value={email} onChange={(e) => setEmail(e.target.value)} style={{margin: '5px 0'}}/>
         <TextInput  label="Screen Name"  variant="flat" placeholder='Screen Name' value={userName} onChange={(e) => setUserName(e.target.value)} style={{margin: '5px 0'}}/>
         <TextInput  label="Password" type={pVisible ? 'text' : 'password'} placeholder='Password' variant="flat" value={password} onChange={(e) => setPassword(e.target.value)} style={{margin: '5px 0'}}  />

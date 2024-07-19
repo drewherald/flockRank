@@ -16,12 +16,13 @@ export default function FormPopup({flavorText}) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     border: '2px solid #000',
-    bgcolor: 'black',
+    backgroundColor: '#c6c6c6',
     p: 4,
   };
 
   const buttonStyle = {
-    padding: '8px 16px'
+    padding: '8px 16px',
+    backgroundColor: '#c6c6c6'
     }
 
   return (
