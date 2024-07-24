@@ -24,7 +24,7 @@ export default function Home() {
     }, [])
 
   return (
-    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: '10px', backgroundColor: '#008080', padding: '10px 0'}}>
+    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 2fr 1fr', gap: '10px', backgroundColor: '#008080', padding: '10px 0', minHeight: '80svh'}}>
         <Box sx={{ backgroundColor: '#008080'}}>
         </Box>
         <Box>

@@ -26,7 +26,6 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
 
   const handleClick = async() => {
 
-    console.log(user)
 
     if(user){
       const update = upvotes + 1
@@ -63,7 +62,7 @@ export default function SongCard({title, date, venue, city, state, comment, upvo
               <Typography sx={{backgroundColor: '#c6c6c6'}}>{comment}</Typography>
               <div sx={{backgroundColor: '#c6c6c6'}}>
                 <ul style={{display: 'flex', backgroundColor: '#c6c6c6', margin: '0', listStyle: 'none', padding: '16px 0 0 0', fontSize: '12px', alignItems: 'center' }} className='commentInterface'>
-                    <li style={{":hover": {color: 'blue}'}, padding: '0', backgroundColor: '#c6c6c6', display: 'block', margin: '0', cursor: 'pointer'} } onClick={() => setShowComments(!showComments)}>{externalComments ? externalComments.length : 0} comments</li>
+                    <li style={{":hover": {color: 'blue}'}, padding: '0', backgroundColor: '#c6c6c6', display: 'block', margin: '0', cursor: 'pointer'} } onClick={() => setShowComments(!showComments)}>{externalComments ? externalComments.length : 0}{" "}{externalComments.length === 1 ? 'comment' : 'comments'}</li>
                     {user &&
                       <React.Fragment>
                         <li style={{padding:' 0 5px', backgroundColor: '#c6c6c6'}} className='desktop'> | </li>

@@ -8,8 +8,6 @@ import SongPage from "./pages/SongPage";
 import Footer from "./components/Footer";
 import { AuthContextProvider } from "./context/AuthContext";
 import UserPage from "./pages/UserPage";
-import { styleReset } from 'react95';
-import { createGlobalStyle } from 'styled-components';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 
