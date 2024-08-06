@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import React, { useState, createContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Box, Container } from "@mui/material";
@@ -9,6 +10,7 @@ import Footer from "./components/Footer";
 import { AuthContextProvider } from "./context/AuthContext";
 import UserPage from "./pages/UserPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Photos from "./pages/Photos";
 
 
 
@@ -77,6 +79,8 @@ function App() {
             <Box className="pages" sx={{minHeight: '80svh'}}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/photos" element={<Photos />} />
                 <Route path="/songs/:id" element={<SongPage />} />
                 <Route path="/user/:id" element={<UserPage />} />
               </Routes>

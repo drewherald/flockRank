@@ -54,7 +54,7 @@ export default function Navbar() {
         </Box>
         <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 7dvw', margin: '10px 0 0 0', width: '100%', backgroundColor: 'black'}}>
         
-        <Typography sx={{color: 'white', backgroundColor: 'black', color: '#dfe300'}}>The Best Place to Rank Goose Shows on the Web</Typography>
+        <Typography sx={{backgroundColor: 'black', color: '#dfe300'}}>The Best Place to Rank Goose Shows on the Web</Typography>
 
          <span>
         {user ?
