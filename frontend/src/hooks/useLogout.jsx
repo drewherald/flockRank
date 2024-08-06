@@ -1,16 +1,14 @@
-import { useAuthContext } from "./useAuthContext"
+import { useAuthContext } from "./useAuthContext";
 
 export const useLogout = () => {
+  const { setState } = useAuthContext();
+  const logout = () => {
+    //remove from localStorage
+    localStorage.removeItem("user");
 
-    const {setState} = useAuthContext()
-    const logout = () => {
+    //global context logout
+    setState({ type: "LOGOUT" });
+  };
 
-        //remove from localStorage
-        localStorage.removeItem('user')
-
-        //global context logout
-        setState({type: 'LOGOUT'})
-    }
-
-    return {logout}
-}
+  return { logout };
+};

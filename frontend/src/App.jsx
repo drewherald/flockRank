@@ -12,26 +12,17 @@ import UserPage from "./pages/UserPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Photos from "./pages/Photos";
 
-
-
-
-
-
-
-
 const theme = createTheme({
-  typography:{
-    fontFamily: 'ms_sans_serif'
-  }
+  typography: {
+    fontFamily: "ms_sans_serif",
+  },
 });
-
 
 export const SongContext = createContext({
   songList: [],
   toggleColorMode: true,
   setColorMode: () => {},
 });
-
 
 function App() {
   const [songList, setSongList] = useState([]);
@@ -64,19 +55,14 @@ function App() {
     fetchSongs();
   }, []);
 
-
-
-
-
-  
   return (
     <AuthContextProvider>
       <ThemeProvider theme={theme}>
-      <SongContext.Provider value={{ songList, setColorMode }}>
+        <SongContext.Provider value={{ songList, setColorMode }}>
           <CssBaseline />
           <Container disableGutters maxWidth={false}>
             <Navbar />
-            <Box className="pages" sx={{minHeight: '80svh'}}>
+            <Box className="pages" sx={{ minHeight: "80svh" }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -87,7 +73,7 @@ function App() {
             </Box>
             <Footer />
           </Container>
-      </SongContext.Provider>
+        </SongContext.Provider>
       </ThemeProvider>
     </AuthContextProvider>
   );
