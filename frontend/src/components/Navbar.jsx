@@ -8,6 +8,7 @@ import AuthPopup from './AuthPopup'
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { Button } from 'react95'
+import frBlue from '../assets/images/FlockrankBLUE.png'
 
 import '../assets/styles/components/navbar.css'
 
@@ -30,8 +31,8 @@ export default function Navbar() {
     <header style={{backgroundColor: '#c6c6c6'}}>
       <Box className='headerContainer' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center'}}>
       <Box className='navContainer' sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '30px 0 10px 0', width: '86dvw'}}>
-            <Link href={'/'} underline='none'  style={{ textDecoration: 'none' }}>
-                <Typography className='flockranknet' variant='h4' sx={{fontFamily: 'Elianto, Helvetica, sans-serif', color: '	#394dcd'}}>FLOCKRANK.NET</Typography>
+            <Link href={'/'} underline='none'  style={{ textDecoration: 'none' , paddingTop: '10px'}}>
+                <img src={frBlue} style={{maxHeight: '10svh'}} alt='flockrank logo' ></img>
             </Link>
             <Box className='navInner' sx={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
               <Autocomplete
