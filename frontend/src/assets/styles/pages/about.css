@@ -1,0 +1,20 @@
+.aboutContent{
+    display: grid;
+    gap: 30px;
+    align-content: center;
+    padding-top: 2svh;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .aboutContent{
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+       }
+  }
+
+  @media only screen and (min-width: 1001px) {
+    .aboutContent{
+       grid-template-columns: 3fr 1fr;
+      }
+  }

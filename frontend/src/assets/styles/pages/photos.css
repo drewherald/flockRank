@@ -1,0 +1,52 @@
+.photoContainer{
+    display: grid;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+    justify-items: center;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .photoContainer{
+        grid-template-columns: 1fr;
+       }
+  }
+
+  @media only screen and (min-width: 1001px) {
+    .photoContainer{
+       grid-template-columns: 1fr 1fr;
+      }
+  }
+
+  .galPhoto:hover ~ .galText{
+    display: inline;
+}
+
+.galPhoto:hover {
+    animation: fadeOut .5s ease-out forwards;
+}
+
+.galText{
+    color: white;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.galDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 20%;
+    }
+}
