@@ -74,7 +74,7 @@ export default function Photos() {
           Photo Gallery{" "}
         </Typography>
           <Box className='photoContainer'>
-          {images.map((image) => <div className="galDiv"><img src={image[0]} className="galPhoto" alt={image.toString()} style={{maxWidth: '30svw', zIndex: '0'}}></img><Typography className="galText" sx={{zIndex: '1'}}>{image[1]}</Typography></div>)}
+          {images.map((image) => <div className="galDiv"><img src={image[0]} className="galPhoto" alt={image.toString()} ></img><Typography className="galText" sx={{zIndex: '1'}}>{image[1]}</Typography></div>)}
           </Box>
       </Box>
       <Box></Box>

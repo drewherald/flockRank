@@ -11,11 +11,19 @@
     .photoContainer{
         grid-template-columns: 1fr;
        }
+
+    .galPhoto{
+        max-width: 70svw;
+    }
   }
 
   @media only screen and (min-width: 1001px) {
     .photoContainer{
        grid-template-columns: 1fr 1fr;
+      }
+
+      .galPhoto{
+        max-height: 30svw;
       }
   }
 
@@ -39,6 +47,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.galPhoto{
+    z-index: 0;
 }
 
 @keyframes fadeOut{

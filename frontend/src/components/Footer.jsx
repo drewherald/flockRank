@@ -1,20 +1,22 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import "../assets/styles/components/footer.css";
+
 
 export default function Footer() {
   return (
     <Box
+      className='footerBox'
       sx={{
         padding: "50px 0 25px 0",
         position: "relative",
         bottom: "0",
         backgroundColor: "#008080",
         display: "grid",
-        gridTemplateColumns: "3fr 1fr",
         width: "100dvw",
       }}
     >
-      <Box sx={{ display: "flex", paddingLeft: "40px" }}>
+      <Box className='quickLinks' sx={{ display: "flex" }}>
         <a href={"/about"} style={{ textDecoration: "none", color: "#dfe300" }}>
           About
         </a>
@@ -37,9 +39,8 @@ export default function Footer() {
       </Box>
       <a
         href={"https://www.aliasmediadesign.com"}
+        className="alias"
         style={{
-          textAlign: "right",
-          paddingRight: "40px",
           backgroundColor: "#008080",
           color: "#dfe300",
           textDecoration: "none",
