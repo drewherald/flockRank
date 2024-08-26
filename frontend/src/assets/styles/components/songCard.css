@@ -10,10 +10,7 @@
     cursor: pointer;
 }
 
-.userLinkSC:hover{
-    color: blue !important;
-    cursor: pointer;
-}
+
 
 .css-46bh2p-MuiCardContent-root{
     background-color: #c6c6c6;
@@ -31,5 +28,12 @@
 
     .desktop{
         display: none;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .userLinkSC:hover{
+        color: blue !important;
+        cursor: pointer;
     }
 }

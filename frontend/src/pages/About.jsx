@@ -41,7 +41,7 @@ export default function About() {
             with a camera, so check out the photo gallery if you are interested :) If you have photos of your own to share, please email them
             to photos@flockrank.net and I will add them to the site!!!
           </Typography>
-          <Box sx={{display: 'flex', alignItems:'center'}}>
+          <Box className='drewPic' sx={{display: 'flex', alignItems:'center'}}>
             <div>
             <img src={drew} style={{maxHeight: '30svh'}} alt="drew" />
             <Typography sx={{paddingTop: '5px', fontSize: '12px', textAlign:'center'}}>NYE '22 in Cincy</Typography>

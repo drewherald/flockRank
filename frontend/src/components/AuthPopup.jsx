@@ -62,7 +62,6 @@ const PopupBody = styled("div")(
   ({ theme }) => `
   width: max-content;
   padding: 12px 16px;
-  margin: 8px;
   border-radius: 8px;
   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
   background-color: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
