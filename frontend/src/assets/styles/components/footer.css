@@ -10,6 +10,11 @@
     font-size: 20px;
   }
 
+  .linkLine{
+    padding-bottom: 10px;
+    font-size: 20px !important;
+  }
+
   .alias{
     text-align: center;
   }

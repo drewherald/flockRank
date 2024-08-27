@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { Box } from "@mui/system";
 import { TextInput, Button } from "react95";
 
-export default function Songform({ songId, externalComments, triggerOpen, onClose }) {
+export default function Songform({ songId, externalComments, onClose }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false)
+
 
 
   //comment form submission handler
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     let newComments = externalComments;
     const user = JSON.parse(localStorage.getItem("user"));
@@ -39,8 +42,9 @@ export default function Songform({ songId, externalComments, triggerOpen, onClos
       setError(null);
       setSuccess("Your comment has been posted!");
       console.log("new comment added", commentJson);
-      triggerOpen();
     }
+
+    setLoading(false)
   };
 
   return (
@@ -61,10 +65,7 @@ export default function Songform({ songId, externalComments, triggerOpen, onClos
         onChange={(e) => setComment(e.target.value)}
         style={{ paddingBottom: "10px", marginTop:'10px', fontFamily: "ms_sans_serif" }}
       />
-      <Button type="submit" style={{ margin: "10px 0" }}>
-        Submit
-      </Button>
-      <button
+        <button
         className="closeButton"
         type="submit"
         onClick={onClose}
@@ -72,6 +73,11 @@ export default function Songform({ songId, externalComments, triggerOpen, onClos
       >
         X
       </button>
+      {loading ? <div></div> :  <Button type="submit" style={{ margin: "10px 0" }}>
+        Submit
+      </Button>}
+     
+    
       {error && <div style={{ color: "red" }}>{error}</div>}
       {!error && <Box sx={{ color: "green" }}>{success}</Box>}
     </Box>

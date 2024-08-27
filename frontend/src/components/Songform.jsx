@@ -20,6 +20,7 @@ export default function Songform({onClose}) {
   const [state, setState] = useState("");
   const [comment, setComment] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false)
 
   //get songs
   const globalSongs = useContext(SongContext);
@@ -30,6 +31,7 @@ export default function Songform({onClose}) {
   //handle new song submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     if (title !== "") {
       const response = await fetch("https://flockrank.onrender.com/api/songs");
@@ -132,20 +134,23 @@ export default function Songform({onClose}) {
             setComment("");
             setError(null);
 
-            console.log("new song added", songJson);
           }
         }
       }
     }
+    setLoading(false)
   };
 
   return (
+    
     <Box
       component="form"
       className="create"
       onSubmit={handleSubmit}
       sx={{ display: "flex", flexDirection: "column", width: "40dvw" }}
     >
+
+     
       <Typography
         sx={{ fontSize: "24px", textAlign: "center", paddingBottom: "20px" }}
       >
@@ -208,13 +213,7 @@ export default function Songform({onClose}) {
         onChange={(e) => setComment(e.target.value)}
         sx={{ paddingBottom: "10px" }}
       />
-      <Button
-        className="formButton"
-        type="submit"
-        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
-      >
-        Submit
-      </Button>
+
       <button
         className="closeButton"
         type="submit"
@@ -223,8 +222,21 @@ export default function Songform({onClose}) {
       >
         X
       </button>
+      
+       {loading ? <div></div> : <React.Fragment>
+      <Button
+        className="formButton"
+        type="submit"
+        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
+      >
+        Submit
+      </Button>
+      </React.Fragment>
+      }
       {error && <Typography sx={{ color: "red" }}>{error}</Typography>}
-      {!error && <Box sx={{ color: "green" }}>{rerenderAutocomplete}</Box>}
+      {!error && <Box sx={{ color: "green" }}>{rerenderAutocomplete}</Box>} 
+     
+
     </Box>
   );
 }

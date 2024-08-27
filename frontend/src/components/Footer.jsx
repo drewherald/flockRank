@@ -17,10 +17,14 @@ export default function Footer() {
       }}
     >
       <Box className='quickLinks' sx={{ display: "flex" }}>
+      <a href={"/"} style={{ textDecoration: "none", color: "#dfe300" }}>
+          Home
+        </a>
+        <Typography className="linkLine" sx={{ padding: "0 5px", color: "#dfe300" }}>|</Typography>
         <a href={"/about"} style={{ textDecoration: "none", color: "#dfe300" }}>
           About
         </a>
-        <Typography sx={{ padding: "0 5px", color: "#dfe300" }}>|</Typography>
+        <Typography className="linkLine" sx={{ padding: "0 5px", color: "#dfe300" }}>|</Typography>
         <a
           href={"/photos"}
           style={{ textDecoration: "none", color: "#dfe300" }}
@@ -46,7 +50,7 @@ export default function Footer() {
           textDecoration: "none",
         }}
       >
-        2024 Alias Media & Design LLC
+        2024 Alias Media & Design
       </a>
     </Box>
   );
