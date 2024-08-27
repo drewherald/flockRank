@@ -16,3 +16,12 @@
     }
 }
 
+.closeButton{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-weight: 900;
+}

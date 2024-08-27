@@ -10,7 +10,7 @@ import { Paper, Typography } from "@mui/material";
 import { Button } from "react95";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-export default function Songform() {
+export default function Songform({onClose}) {
   const [title, setTitle] = useState("");
   const [rerenderAutocomplete, setRerenderAutocomplete] = useState("");
   const [rerenderDate, setRerenderDate] = useState("");
@@ -215,6 +215,14 @@ export default function Songform() {
       >
         Submit
       </Button>
+      <button
+        className="closeButton"
+        type="submit"
+        onClick={onClose}
+        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
+      >
+        X
+      </button>
       {error && <Typography sx={{ color: "red" }}>{error}</Typography>}
       {!error && <Box sx={{ color: "green" }}>{rerenderAutocomplete}</Box>}
     </Box>

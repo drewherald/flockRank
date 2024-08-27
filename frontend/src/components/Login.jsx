@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { TextInput, Button } from "react95";
 
-export default function Login() {
+export default function Login({onClose}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [pVisible, setpVisible] = useState(false);
@@ -70,6 +70,14 @@ export default function Login() {
       >
         Log In
       </Button>
+      <button
+        className="closeButton"
+        type="submit"
+        onClick={onClose}
+        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
+      >
+        X
+      </button>
       {error && <Typography sx={{ color: "#EE4B2B" }}>{error}</Typography>}
     </Box>
   );

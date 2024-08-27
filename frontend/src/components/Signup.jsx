@@ -2,8 +2,9 @@ import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 import { Button, TextInput } from "react95";
+import '../assets/styles/pages/home.css'
 
-export default function Signup() {
+export default function Signup({onClose}) {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -79,6 +80,14 @@ export default function Signup() {
       >
         Sign Up
       </Button>
+      <button
+        className="closeButton"
+        type="submit"
+        onClick={onClose}
+        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
+      >
+        X
+      </button>
       {error && <Typography sx={{ color: "#EE4B2B" }}>{error}</Typography>}
     </Box>
   );

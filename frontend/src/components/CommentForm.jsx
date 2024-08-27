@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box } from "@mui/system";
 import { TextInput, Button } from "react95";
 
-export default function Songform({ songId, externalComments, triggerOpen }) {
+export default function Songform({ songId, externalComments, triggerOpen, onClose }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState("");
@@ -59,11 +59,19 @@ export default function Songform({ songId, externalComments, triggerOpen }) {
         variant="flat"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        style={{ paddingBottom: "10px", fontFamily: "ms_sans_serif" }}
+        style={{ paddingBottom: "10px", marginTop:'10px', fontFamily: "ms_sans_serif" }}
       />
       <Button type="submit" style={{ margin: "10px 0" }}>
         Submit
       </Button>
+      <button
+        className="closeButton"
+        type="submit"
+        onClick={onClose}
+        style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
+      >
+        X
+      </button>
       {error && <div style={{ color: "red" }}>{error}</div>}
       {!error && <Box sx={{ color: "green" }}>{success}</Box>}
     </Box>

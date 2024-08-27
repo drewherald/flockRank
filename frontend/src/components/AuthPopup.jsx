@@ -38,7 +38,7 @@ export default function AuthPopup({ flavorText, signup }) {
         {flavorText}
       </Button>
       <Modal id={id} open={open} onClose={handleClose} placement="bottom-end">
-        <PopupBody sx={style}>{signup ? <Signup /> : <Login />}</PopupBody>
+        <PopupBody sx={style}>{signup ? <Signup onClose={handleClose} /> : <Login onClose={handleClose} />}</PopupBody>
       </Modal>
     </div>
   );

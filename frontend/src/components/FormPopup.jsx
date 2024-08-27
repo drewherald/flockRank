@@ -37,7 +37,7 @@ export default function FormPopup({ flavorText }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Songform></Songform>
+          <Songform onClose={handleClose}></Songform>
         </Box>
       </Modal>
     </div>

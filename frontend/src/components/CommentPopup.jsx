@@ -43,7 +43,7 @@ export default function CommentPopup({ flavorText, songId, externalComments }) {
       </Typography>
       <Modal id={id} open={open} onClose={handleClose} placement="bottom-end">
         <PopupBody sx={style}>
-          <CommentForm songId={songId} externalComments={externalComments} />
+          <CommentForm songId={songId} externalComments={externalComments} onClose={handleClose} />
         </PopupBody>
       </Modal>
     </div>
