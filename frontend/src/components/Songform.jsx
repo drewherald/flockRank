@@ -6,7 +6,7 @@ import { SongContext } from "../App";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { Paper, Typography } from "@mui/material";
+import { MenuItem, Paper, Typography } from "@mui/material";
 import { Button } from "react95";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -27,6 +27,212 @@ export default function Songform({onClose}) {
 
   //get user
   const { user } = useAuthContext();
+
+  //state codes
+  const states = [
+    {
+      value: 'AL',
+      label: 'Alabama',
+    },
+    {
+      value: 'AK',
+      label: 'Alaska',
+    },
+    {
+      value: 'AZ',
+      label: 'Arizona',
+    },
+    {
+      value: 'AR',
+      label: 'Arkansas',
+    },
+    {
+      value: 'CA',
+      label: 'California',
+    },
+    {
+      value: 'CO',
+      label: 'Colorado',
+    },
+    {
+      value: 'CT',
+      label: 'Connecticut',
+    },
+    {
+      value: 'DE',
+      label: 'Deleware',
+    }, {
+      value: 'DC',
+      label: 'District of Columbia',
+    },
+    {
+      value: 'FL',
+      label: 'Florida',
+    },
+    {
+      value: 'GA',
+      label: 'Georgia',
+    },
+    {
+      value: 'HI',
+      label: 'Hawaii',
+    },
+    {
+      value: 'ID',
+      label: 'Idaho',
+    },
+    {
+      value: 'IL',
+      label: 'Illinois',
+    },
+    {
+      value: 'IN',
+      label: 'Indiana',
+    },
+    {
+      value: 'IA',
+      label: 'Iowa',
+    },
+    {
+      value: 'KS',
+      label: 'Kansas',
+    },
+    {
+      value: 'KY',
+      label: 'Kentucky',
+    },
+    {
+      value: 'LA',
+      label: 'Louisiana',
+    },
+    {
+      value: 'ME',
+      label: 'Maine',
+    },
+    {
+      value: 'MD',
+      label: 'Maryland',
+    },
+    {
+      value: 'MA',
+      label: 'Massachusetts',
+    },
+    {
+      value: 'MI',
+      label: 'Michigan',
+    },
+    {
+      value: 'MN',
+      label: 'Minnesota',
+    },
+    {
+      value: 'MS',
+      label: 'Mississippi',
+    },
+    {
+      value: 'MO',
+      label: 'Missouri',
+    },
+    {
+      value: 'MT',
+      label: 'Montana',
+    },
+    {
+      value: 'NE',
+      label: 'Nebraska',
+    },
+    {
+      value: 'NV',
+      label: 'Nevada',
+    },
+    {
+      value: 'NH',
+      label: 'New Hampshire',
+    },
+    {
+      value: 'NJ',
+      label: 'New Jersey',
+    },
+    {
+      value: 'NM',
+      label: 'New Mexico',
+    }, {
+      value: 'NY',
+      label: 'New York',
+    },
+    {
+      value: 'NC',
+      label: 'North Carolina',
+    },
+    {
+      value: 'ND',
+      label: 'North Dakota',
+    },
+    {
+      value: 'OH',
+      label: 'Ohio',
+    },
+    {
+      value: 'OK',
+      label: 'Oklahoma',
+    },
+    {
+      value: 'OR',
+      label: 'Oregon',
+    },
+    {
+      value: 'PA',
+      label: 'Pennsylvania',
+    },
+    {
+      value: 'RI',
+      label: 'Rhode Island',
+    },
+    {
+      value: 'SC',
+      label: 'South Carolina',
+    },
+    {
+      value: 'SD',
+      label: 'South Dakota',
+    },
+    {
+      value: 'TN',
+      label: 'Tennessee',
+    },
+    {
+      value: 'TX',
+      label: 'Texas',
+    },
+    {
+      value: 'UT',
+      label: 'Utah',
+    },
+    {
+      value: 'VT',
+      label: 'Vermont',
+    },
+    {
+      value: 'VA',
+      label: 'Virginia',
+    },
+    {
+      value: 'WA',
+      label: 'Washington',
+    },
+    {
+      value: 'WV',
+      label: 'West Virginia',
+    },
+    {
+      value: 'WI',
+      label: 'Wisconsin',
+    },
+    {
+      value: 'WY',
+      label: 'Wyoming',
+    },
+  ];
 
   //handle new song submission
   const handleSubmit = async (e) => {
@@ -199,12 +405,19 @@ export default function Songform({onClose}) {
         sx={{ paddingBottom: "10px" }}
       />
       <TextField
-        label="State (Postal Code ex: CO, blank if International)"
+        label="State (Leave Blank if International)"
         variant="outlined"
         value={state}
+        select
         onChange={(e) => setState(e.target.value)}
         sx={{ paddingBottom: "10px" }}
-      />
+      >
+         {states.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+      </TextField>
       <TextField
         id="outlined-basic"
         label="Comments"
