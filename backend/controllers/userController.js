@@ -42,8 +42,9 @@ const signupUser = async (req, res) => {
 const sendEmail = async (req, res) => {
 
   try{
-    console.log(`Beginning email req ${req.body}` )
+    
     const { recipient_email, OTP } = req.body
+    console.log(`Beginning email req ${recipient_email}` )
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
