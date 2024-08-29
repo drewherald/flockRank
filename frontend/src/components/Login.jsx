@@ -41,7 +41,12 @@ export default function Login({onClose}) {
     }
   };
 
+  const forgotEmailHandler = (e) => {
+    setForgotEmail(e.target.value)
+  }
+
   const navigateToOtp = async() => {
+    console.log(forgotEmail)
     if (forgotEmail) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       setOTPCheck(OTP);
@@ -183,7 +188,7 @@ export default function Login({onClose}) {
         variant="flat"
         placeholder="E-Mail"
         value={forgotEmail}
-        onChange={(e) => setForgotEmail(e.target.value)}
+        onChange={(e) => forgotEmailHandler(e)}
         style={{ margin: "5px 0" }}
       />
         <Button
