@@ -45,16 +45,17 @@ const sendEmail = async (req, res) => {
     const { recipient_email, OTP } = req.body
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: 'smtp.zoho.eu',
+      port: 465,
+      secure: true, //ssl
       auth: {
-        user: process.env.MY_EMAIL,
-        pass: process.env.MY_PASSWORD,
-      },
-    });
+          user:process.env.EMAIL,
+          pass:process.env.EMAIL_PASSWORD
+      }})
        
   
       const mail_configs = await transporter.sendMail( {
-        from: process.env.MY_EMAIL,
+        from: process.env.EMAIL,
         to: recipient_email,
         subject: "FlockRank Password Recovery",
         html: `<!DOCTYPE html>
