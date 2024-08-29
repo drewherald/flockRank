@@ -58,7 +58,7 @@ export default function Login({onClose}) {
         {
           method: "POST",
           mode: 'no-cors',
-          body: {recipient_email: forgotEmail, OTPData},
+          body: {forgotEmail, OTPData},
           headers: {
             "Content-Type": "application/json",
           },
