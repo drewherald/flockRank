@@ -38,13 +38,44 @@ const signupUser = async (req, res) => {
   }
 };
 
+//update user
+
+const updateUser = async (req,res) => {
+  const email = req.params.email
+  const password = req.params.password
+
+  try{
+
+    const newPass = await User.updateUser(email, password)
+    const user = await User.findOneAndUpdate(
+        { email: email },
+        {
+          password: newPass
+        },
+        { new: true }
+      );
+    
+
+    
+    if (!user) {
+      return res.status(404).json({ error: "No such user" }); 
+
+
+    }
+    res.status(200).json(user);
+
+  }catch(error){
+    res.status(400).json({ error: "No such user with this email"});
+
+  }
+}
+
 //forgot password
 const sendEmail = async (req, res) => {
 
   try{
     
     const { recipient_email, OTP } = req.body
-    console.log(`Beginning email req ${req.body.recipient_email} ${req.body.OTP}` )
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
@@ -98,4 +129,4 @@ const sendEmail = async (req, res) => {
 
 }
 
-module.exports = { signupUser, loginUser, sendEmail };
+module.exports = { signupUser, loginUser, updateUser, sendEmail };

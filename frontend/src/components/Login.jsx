@@ -46,22 +46,20 @@ export default function Login({onClose}) {
   }
 
   const navigateToOtp = async() => {
-    console.log(forgotEmail)
     if (forgotEmail) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       setOTPCheck(OTP);
       setOTPCode(true)
-      console.log('sending POST to email server')
+      console.log(`sending POST to email server ${forgotEmail}`)
 
       const response = await fetch(
         `https://flockrank.onrender.com/api/user/forgotpassword`,
         {
           method: "POST",
-          mode: 'no-cors',
-          body: {forgotEmail, OTPData},
+          body: JSON.stringify({recipient_email: forgotEmail, OTP: OTP }),
           headers: {
             "Content-Type": "application/json",
-          },
+          }
         }
       )
         .then(() => setOTPCode(true))
@@ -73,12 +71,35 @@ export default function Login({onClose}) {
   }
 
   const verifyOTP = () => {
-    if(OTPCheck === OTPData){
-      alert('your password has been reset!')
-      setVerified(false)
-      setOTPCheck(false)
-      setForgotPassword(false)
+    if(OTPCheck === Math.floor(OTPData)){
+      setVerified(true)
+    }else{
+      alert(`${OTPCheck} ${OTPData}`)
+      console.log(OTPCheck === OTPData)
+      console.log(typeof OTPCheck)
+      console.log(typeof OTPData)
     }
+  }
+
+  const resetPassword = async() => {
+
+    if(newPassword !== ""){
+      const response = await fetch(
+        `https://flockrank.onrender.com/api/user/updatepassword`,
+        {
+          method: "POST",
+          body: JSON.stringify({email: forgotEmail, password: newPassword }),
+          headers: {
+            "Content-Type": "application/json",
+          }
+        }
+      )
+        .catch(console.log);
+      return; 
+    }
+   
+  
+  return alert("Something went wrong");
   }
 
   return (
@@ -124,6 +145,7 @@ export default function Login({onClose}) {
         className="formButton"
         type="submit"
         disabled={isLoading}
+        onClick={resetPassword}
         style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
       >
         Submit
@@ -155,6 +177,7 @@ export default function Login({onClose}) {
            <Button
         className="formButton"
         type="submit"
+        onClick={verifyOTP}
         disabled={isLoading}
         style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
       >
