@@ -51,6 +51,7 @@ export default function Login({onClose}) {
         `https://flockrank.onrender.com/api/user/forgotpassword`,
         {
           method: "POST",
+          mode: 'no-cors',
           body: {recipient_email: forgotEmail, OTPData},
           headers: {
             "Content-Type": "application/json",
