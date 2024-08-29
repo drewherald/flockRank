@@ -42,19 +42,17 @@ const signupUser = async (req, res) => {
 const sendEmail = async (req, res) => {
 
   try{
+    console.log(`Beginning email req ${req.body}` )
     const { recipient_email, OTP } = req.body
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
-      port: 25,
+      port: 587,
       secure: false,
       auth: {
           user:process.env.EMAIL,
           pass:process.env.EMAIL_PASSWORD
-      },
-      tls: {
-        rejectUnauthorized: false
-    }
+      }
     })
        
   
@@ -91,7 +89,7 @@ const sendEmail = async (req, res) => {
     
   </body>
   </html>`,
-      });
+      }).then(() => console.log('done'))
   }catch(e){
     console.log(e)
   }
