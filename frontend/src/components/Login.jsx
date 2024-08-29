@@ -10,8 +10,8 @@ export default function Login({onClose}) {
   const [forgotPassword, setForgotPassword] = useState(false)
   const [otpCode, setOTPCode] = useState(false)
   const [OTPData, setOTPData] = useState(0)
-  const [OTPCheck, setOTPCheck] = useState(null)
-  const [forgotEmail, setForgotEmail] = useState(null);
+  const [OTPCheck, setOTPCheck] = useState(1234)
+  const [forgotEmail, setForgotEmail] = useState("");
   const [verified, setVerified] = useState(false)
   const [newPassword, setNewPassword] = useState("")
   const { login, isLoading, error } = useLogin();
@@ -59,6 +59,7 @@ export default function Login({onClose}) {
         }
       )
         .then(() => setOTPCode(true))
+        .then(() => console.log(response))
         .catch(console.log);
       return; 
     } 
