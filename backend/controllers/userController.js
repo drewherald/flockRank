@@ -45,13 +45,17 @@ const sendEmail = async (req, res) => {
     const { recipient_email, OTP } = req.body
 
     const transporter = nodemailer.createTransport({
-      host: 'smtp.zoho.eu',
-      port: 465,
-      secure: true, //ssl
+      host: 'smtp.zoho.com',
+      port: 25,
+      secure: false,
       auth: {
           user:process.env.EMAIL,
           pass:process.env.EMAIL_PASSWORD
-      }})
+      },
+      tls: {
+        rejectUnauthorized: false
+    }
+    })
        
   
       const mail_configs = await transporter.sendMail( {

@@ -46,6 +46,7 @@ export default function Login({onClose}) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       setOTPCheck(OTP);
       setOTPCode(true)
+      console.log('sending POST to email server')
 
       const response = await fetch(
         `https://flockrank.onrender.com/api/user/forgotpassword`,
