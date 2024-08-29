@@ -4,6 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const songRoutes = require("./routes/songs");
 const userRoutes = require("./routes/user");
+const bodyParser = require('body-parser'),
+
 
 //express app
 const app = express();
