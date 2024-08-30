@@ -46,6 +46,8 @@ const updateUser = async (req,res) => {
 
   try{
 
+    console.log(`email controller ${email}`)
+    console.log(`pass controller ${password}`)
     const newPass = await User.updateUser(email, password)
     const user = await User.findOneAndUpdate(
         { email: email },

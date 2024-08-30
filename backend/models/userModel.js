@@ -93,15 +93,19 @@ userSchema.statics.updateUser = async function (email, password) {
       );
     }
   
-    const exists = await this.findOne({ email });
+    const exists = await this.findOne({ email: email });
   
     if (!exists) {
       throw Error("Email not associated to account");
     }
   
+    
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
   
+    console.log(exists)
+    console.log(hash)
+    console.log(email)
     return hash
   }catch(e){
     console.log(e)
