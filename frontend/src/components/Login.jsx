@@ -87,14 +87,14 @@ export default function Login({onClose}) {
       const response = await fetch(
         `https://flockrank.onrender.com/api/user/updatepassword`,
         {
-          method: "POST",
+          method: "PATCH",
           body: JSON.stringify({email: forgotEmail, password: newPassword }),
           headers: {
             "Content-Type": "application/json",
           }
         }
       )
-        .catch(console.log);
+        .catch(console.log('error'));
       return; 
     }
    

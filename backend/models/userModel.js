@@ -81,26 +81,32 @@ userSchema.statics.login = async function (email, password) {
 //static update method
 userSchema.statics.updateUser = async function (email, password) {
   //user validation
-  if (!validator.isEmail(email)) {
-    throw Error("Email is not valid");
+
+  try{
+    if (!validator.isEmail(email)) {
+      throw Error("Email is not valid");
+    }
+  
+    if (!validator.isStrongPassword(password)) {
+      throw Error(
+        "Password not strong enough. Please use at least 8 characters, including capital letter, number, and special character (!,@,#,$,%,&,*)."
+      );
+    }
+  
+    const exists = await this.findOne({ email });
+  
+    if (!exists) {
+      throw Error("Email not associated to account");
+    }
+  
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+  
+    return hash
+  }catch(e){
+    console.log(e)
   }
-
-  if (!validator.isStrongPassword(password)) {
-    throw Error(
-      "Password not strong enough. Please use at least 8 characters, including capital letter, number, and special character (!,@,#,$,%,&,*)."
-    );
-  }
-
-  const exists = await this.findOne({ email });
-
-  if (!exists) {
-    throw Error("Email not associated to account");
-  }
-
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(password, salt);
-
-  return hash
+  
 };
 
 

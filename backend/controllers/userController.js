@@ -66,7 +66,7 @@ const updateUser = async (req,res) => {
 
   }catch(error){
     res.status(400).json({ error: "No such user with this email"});
-
+    console.log(error)
   }
 }
 
