@@ -45,8 +45,6 @@ const updateUser = async (req,res) => {
 
   try{
 
-    console.log(`email controller ${email}`)
-    console.log(`pass controller ${password}`)
     const newPass = await User.updateUser(email, password)
     const user = await User.findOneAndUpdate(
         { email: email },
@@ -66,7 +64,7 @@ const updateUser = async (req,res) => {
     res.status(200).json(user);
 
   }catch(error){
-    res.status(400).json({ error: "No such user with this email"});
+    res.status(400).json({ error: error.message});
     console.log(error)
   }
 }
@@ -103,15 +101,15 @@ const sendEmail = async (req, res) => {
   </head>
   <body>
   <!-- partial:index.partial.html -->
-  <div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+  <div style="font-family: Helvetica,Arial,sans-serif;min-width:50svw;overflow:auto;line-height:2">
     <div style="margin:50px auto;width:70%;padding:20px 0">
       <div style="border-bottom:1px solid #eee">
-        <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">Koding 101</a>
+        <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">FlockRank.net</a>
       </div>
       <p style="font-size:1.1em">Hi,</p>
       <p>Thank you for choosing FlockRank. Use the following OTP to complete your Password Recovery Procedure. OTP is valid for 5 minutes</p>
       <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${OTP}</h2>
-      <p style="font-size:0.9em;">Regards,<br />Koding 101</p>
+      <p style="font-size:0.9em;">Regards,<br />FlockRank.net</p>
       <hr style="border:none;border-top:1px solid #eee" />
       <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
         <p>FlockRank.net</p>

@@ -82,7 +82,6 @@ userSchema.statics.login = async function (email, password) {
 userSchema.statics.updateUser = async function (email, password) {
   //user validation
 
-  try{
     if (!validator.isEmail(email)) {
       throw Error("Email is not valid");
     }
@@ -103,13 +102,9 @@ userSchema.statics.updateUser = async function (email, password) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
   
-    console.log(exists)
-    console.log(hash)
-    console.log(email)
+
     return hash
-  }catch(e){
-    console.log(e)
-  }
+  
   
 };
 
