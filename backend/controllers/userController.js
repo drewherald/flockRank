@@ -41,8 +41,7 @@ const signupUser = async (req, res) => {
 //update user
 
 const updateUser = async (req,res) => {
-  const email = req.params.email
-  const password = req.params.password
+  const { email, password } = req.body;
 
   try{
 
