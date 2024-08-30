@@ -80,7 +80,7 @@ export default function ForgotPassword({onClose}) {
         }
       }
     
-      const resetPassword = async(e) => {
+      const resetPassword = async (e) => {
         e.preventDefault()
         if(newPassword !== ""){
           const response = await fetch(
@@ -92,9 +92,8 @@ export default function ForgotPassword({onClose}) {
                 "Content-Type": "application/json",
               }
             }
-          ).then((response) => console.log(response.error))
-          .then(() => setHasBeenReset("Your Password Has Been Reset!"))
-
+          ).then(response => response.json())
+          .then(json => resetPasswordErrorCheck(json))
 
           
 
@@ -104,6 +103,14 @@ export default function ForgotPassword({onClose}) {
        
       
       return alert("Something went wrong");
+      }
+
+      const resetPasswordErrorCheck = (json) => {
+        if(json.error){
+            setHasBeenReset(json.error)
+        }else{
+            setHasBeenReset("Your Password Has Been Reset!")
+        }
       }
 
   return (
@@ -136,6 +143,11 @@ export default function ForgotPassword({onClose}) {
         {verified ? 
         
         <React.Fragment>
+              <Typography
+        sx={{ fontSize: "18px", textAlign: "center", paddingBottom: "20px" }}
+      >
+        Please use at least 8 characters, including at least one capital letter, number, and special character (!,@,#,$,%,&,*)
+        </Typography>
       <TextInput
         label="NewPass"
         type="text"
@@ -147,7 +159,7 @@ export default function ForgotPassword({onClose}) {
       />
            <Button
         className="formButton"
-        type="submit"
+        type="button"
         disabled={isLoading}
         onClick={resetPassword}
         style={{ margin: "10px 0 10px 0", backgroundColor: "#c6c6c6" }}
