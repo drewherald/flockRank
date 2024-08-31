@@ -279,7 +279,7 @@ export default function Songform({onClose}) {
             }
           }
         } else {
-          const upvotes = 0;
+          const upvotes = [];
           const user = JSON.parse(localStorage.getItem("user"));
           const token = user.token;
           const song = {

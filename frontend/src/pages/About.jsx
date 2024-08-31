@@ -39,7 +39,7 @@ export default function About() {
             site, and as a true passion project I am excited you are here! I hope you are able to share your favorite versions of 
             Goose jams and find some new ones along the way. Additionally I am a film photographer who finds myself at many shows 
             with a camera, so check out the photo gallery if you are interested :) If you have photos of your own to share, please email them
-            to photos@flockrank.net and I will add them to the site!!!
+            to flockrank@zohomail.com and I will add them to the site!!!
           </Typography>
           <Box className='drewPic' sx={{display: 'flex', alignItems:'center'}}>
             <div>

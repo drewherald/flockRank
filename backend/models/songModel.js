@@ -29,7 +29,7 @@ const songSchema = new Schema(
       required: false,
     },
     upvotes: {
-      type: Number,
+      type: Array,
       required: true,
     },
     externalComments: {

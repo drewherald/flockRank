@@ -19,7 +19,7 @@ export default function SongCard({
   externalComments,
   userName,
 }) {
-  const [upvoteCount, setUpvoteCount] = useState(upvotes);
+  const [upvoteCount, setUpvoteCount] = useState(upvotes.length);
   const [upvoted, setUpvoted] = useState(false);
   const [showComments, setShowComments] = useState(false);
 
@@ -35,9 +35,9 @@ export default function SongCard({
   //comment handler
   const handleClick = async () => {
     if (user) {
-      const update = upvotes + 1;
-      const song = { upvotes: update, id };
       const user = JSON.parse(localStorage.getItem("user"));
+      const update = upvotes.push(user.email);
+      const song = { upvotes: update, id };
       const token = user.token;
       const response = await fetch(
         `https://flockrank.onrender.com/api/songs/${id}`,
