@@ -18,17 +18,17 @@ export default function About() {
     >
       <Box sx={{ backgroundColor: "#008080" }}></Box>
       <Box>
+      
         <Typography
           variant="h4"
           className="welcomeToFR"
           sx={{
-            padding: "10px 0 20px 0",
+            padding: "20px 0 10px 0",
             backgroundColor: "#008080",
             fontFamily: `'Tahoma', 'ms_sans_serif'`,
           }}
         >
-          {" "}
-          About us{" "}
+          About Us
         </Typography>
         <Box className='aboutContent'>
           <Typography>
@@ -50,6 +50,34 @@ export default function About() {
           </Box>
           
         </Box>
+        <Typography
+          variant="h4"
+          className="welcomeToFR"
+          sx={{
+            padding: "20px 0 10px 0",
+            backgroundColor: "#008080",
+            fontFamily: `'Tahoma', 'ms_sans_serif'`,
+          }}
+        >
+          What is FlockRank?
+        </Typography>
+        <Box className='aboutContent'>
+        <Typography>
+            Half the fun about following a Jam Band is the debate that comes different jams and deciding which ones you are going to 
+            return to time and time again. FlockRank.net is a website designed to keep track of the best versions of each Goose song. 
+            Using the search bar, you can look up any Goose song or cover in an instant to see what users think are the best versions,
+            as well as join in on the conversation yourself. 
+            Clicking 'Sign Up' on the top right corner will allow you to jump in and create an account to begin ranking and posting songs.
+            Once logged in, the 'Post a New Song' button will allow you to create submissions of your own. Please accurately fill out 
+            song title, show date, venue, city, and state. Additionally please add a comment describing why you enjoy that version 
+            specifically. If that version has already been submitted, your comment will be added under the original post and your 
+            comment will be added to the 'comments' section. Each version can have comments from other users who enjoy it as well and you
+            can show your love for a specific version by clicking the upvote button on a song card. Additionally, click on a user's screen 
+            name will allow you to see all of their submissions. <br /> <br />
+            Now, it is up to you! This site needs a living, breathing community in order to be successful, so feel free to sign up and 
+            share the songs you listen to most!
+          </Typography>
+          </Box>
         
       </Box>
     </Box>

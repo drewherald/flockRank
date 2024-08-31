@@ -252,10 +252,13 @@ export default function Songform({onClose}) {
         if (songFilter !== null) {
           if (user) {
             //add upvote
-            songFilter.upvotes = songFilter.upvotes + 1;
+
+            let newUpvotes = songFilter.upvotes 
+            const user = JSON.parse(localStorage.getItem("user"));
+            newUpvotes.push(user.userName);
+            songFilter.upvotes = newUpvotes
 
             //add comment
-            const user = JSON.parse(localStorage.getItem("user"));
             const token = user.token;
             let newComments = songFilter.externalComments;
             newComments.push([comment, user.userName]);
