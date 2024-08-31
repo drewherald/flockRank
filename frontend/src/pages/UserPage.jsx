@@ -23,7 +23,7 @@ export default function UserPage() {
           }
         }
         if (songFilter.length > 0) {
-          songFilter.sort((a, b) => a.upvotes - b.upvotes);
+          songFilter.sort((a, b) => a.upvotes.length - b.upvotes.length);
           songFilter.reverse();
           setSongs(songFilter);
         }

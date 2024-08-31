@@ -23,8 +23,23 @@ export default function SongCard({
   const [upvoted, setUpvoted] = useState(false);
   const [showComments, setShowComments] = useState(false);
 
+
+
   //get user
   const { user } = useAuthContext();
+
+  
+  let colorCheck = false
+
+  
+  if(JSON.parse(localStorage.getItem("user")) != null){
+    for(let i=0; i<upvoteCount; i++){
+      if(upvotes[i]===user.email){
+        colorCheck = true
+      }
+      }  
+  } 
+
 
   let cardStyle = {
     width: "50dvw",
@@ -36,23 +51,37 @@ export default function SongCard({
   const handleClick = async () => {
     if (user) {
       const user = JSON.parse(localStorage.getItem("user"));
-      const update = upvotes.push(user.email);
-      const song = { upvotes: update, id };
-      const token = user.token;
-      const response = await fetch(
-        `https://flockrank.onrender.com/api/songs/${id}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(song),
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${token}`,
-          },
+      
+      let alreadyUpvoted = false
+      for(let i=0; i<upvoteCount; i++){
+        if(upvotes[i]===user.email){
+          alreadyUpvoted = true
+          console.log(alreadyUpvoted)
+          return
         }
-      );
-      setUpvoteCount(upvoteCount + 1);
-      setUpvoted(true);
-    }
+        } 
+        if(!alreadyUpvoted){
+          const update = upvotes;
+          update.push(user.email)
+          console.log(update)
+          const song = { upvotes: update, id };
+          const token = user.token;
+          const response = await fetch(
+            `https://flockrank.onrender.com/api/songs/${id}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify(song),
+              headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          setUpvoteCount(upvoteCount + 1);
+          setUpvoted(true);
+        }
+        }
+
   };
 
   return (
@@ -87,7 +116,7 @@ export default function SongCard({
                 sx={{
                   cursor: "pointer",
                   ":hover": { color: "#394dcd", cursor: "pointer" },
-                  color: upvoted ? "blue" : " ",
+                  color: upvoted || colorCheck ? "blue" : " ",
                 }}
               ></SvgIcon>
               <Typography sx={{ backgroundColor: "#c6c6c6" }}>

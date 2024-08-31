@@ -12,7 +12,7 @@ export default function Home() {
       const json = await response.json();
 
       if (response.ok) {
-        json.sort((a, b) => a.upvotes - b.upvotes);
+        json.sort((a, b) => a.upvotes.length - b.upvotes.length);
         json.reverse();
         setSongs(json);
       }
