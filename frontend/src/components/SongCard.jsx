@@ -220,7 +220,7 @@ export default function SongCard({
                     <Typography
                       className="userLinkSC"
                       onClick={() =>
-                        (window.location.href = `/user/${userName}`)
+                        (window.location.href = `/user/${comment[1]}`)
                       }
                       style={{
                         textDecoration: "none",

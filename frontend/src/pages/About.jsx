@@ -63,7 +63,7 @@ export default function About() {
         </Typography>
         <Box className='aboutContent'>
         <Typography>
-            Half the fun about following a Jam Band is the debate that comes different jams and deciding which ones you are going to 
+            Half the fun about following a Jam Band is the debate that comes with different jams and deciding which ones you are going to 
             return to time and time again. FlockRank.net is a website designed to keep track of the best versions of each Goose song. 
             Using the search bar, you can look up any Goose song or cover in an instant to see what users think are the best versions,
             as well as join in on the conversation yourself. 
